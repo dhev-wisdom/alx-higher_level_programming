@@ -1,2 +1,3 @@
 #!/bin/bash
-python3 $PYCODE
+echo $PYCODE > runscript.py
+python3 runscript.py
