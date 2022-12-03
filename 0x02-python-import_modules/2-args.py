@@ -11,5 +11,5 @@ def run():
     if len(sys.argv) > 1:
         for arg in range(1, len(sys.argv)):
             print("{:d}: {:s}".format(arg, sys.argv[arg]))
-if __name__ = "__main__":
+if __name__ == "__main__":
     run()
