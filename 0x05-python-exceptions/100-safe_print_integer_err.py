@@ -2,7 +2,11 @@
 import sys
 def safe_print_integer_err(value):
     try:
-        print("{:d}".format(value))
+        if value > 0 or value <= 0:
+            if value == int(value):
+                print("{:d}".format(value))
+            else:
+                raise ValueError
         return True
     except (ValueError, TypeError) as err:
         print("Exception: ", err, file=sys.stderr)
