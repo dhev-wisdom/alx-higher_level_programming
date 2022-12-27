@@ -12,15 +12,15 @@ class Square:
                     if size >= 0:
                         self.__size = size
                     else:
-                        raise ValueError
-                except ValueError:
-                    print("size must be >= 0")
+                        raise ValueError("size must be >= 0")
+                except ValueError as err:
+                    print(err)
             else:
-                raise TypeError
-        except TypeError:
-            print("size must be an integer")
+                raise TypeError("size must be an integer")
+        except TypeError as err:
+            print(err)
 
     def area(self):
         "area is a method of Square class that returns the area of the square"
-        x = self.size
+        x = self.__size
         return x**2
