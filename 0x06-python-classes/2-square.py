@@ -6,6 +6,7 @@
 class Square:
     """Square is an empty class that does nothing"""
     def __init__(self, size=0):
+        """init function initializes an instance of Square class with size having a default value of 0"""
         try:
             if isinstance(size, int):
                 try:
@@ -17,7 +18,7 @@ class Square:
                     self.__size = 0
                     print("size must be >= 0")
             else:
-                raise TypeError:
+                raise TypeError
         except TypeError:
             self.__size = 0
             print("size must be an integer")
