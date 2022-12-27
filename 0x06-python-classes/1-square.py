@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-if __name__ = "__main__":
-    class Square:
-        def __init__(self, size=0):
-            self.__size = size
+"""Module creates an emptt class, Square"""
+class Square:
+    """Square is an empty class that does nothing"""
+    def __init__(self, size=None):
+        self.__size = size
