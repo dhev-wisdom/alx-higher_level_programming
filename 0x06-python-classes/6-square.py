@@ -74,6 +74,7 @@ class Square:
                 print("_" * y[0], end="")
                 for j in range(x):
                     print("#", end="")
+                print(" " * y[1], end="")
                 print()
         else:
             print()
