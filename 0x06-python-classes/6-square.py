@@ -4,7 +4,7 @@
 
 class Square:
     """Square is an empty class that does nothing"""
-    def __init__(self, size=0, position=(0,0)):
+    def __init__(self, size=0, position=(0, 0)):
         """init function initializes an instance of Square class"""
         try:
             if isinstance(size, int):
@@ -25,9 +25,9 @@ class Square:
             if isinstance(pos1, int) & isinstance(pos2, int):
                 self.__position = (pos1, pos2)
             else:
-                raise TypeError("position must be a tuple of 2 positive integers")
-        except TypeError as err:
-            print(err)
+                raise TypeError
+        except TypeError:
+            print("position must be a tuple of 2 positive integers")
 
     def area(self):
         "area is a method of Square class that returns the area of the square"
