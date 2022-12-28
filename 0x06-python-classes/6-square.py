@@ -58,10 +58,12 @@ class Square:
 
     @property
     def position(self):
+        """a getter method to get the position of the square"""
         return self.__position
 
     @position.setter
     def position(self, position):
+        """a setter method to set the position of the square"""
         (pos1, pos2) = position
         self.__position = (pos1, pos2)
 
