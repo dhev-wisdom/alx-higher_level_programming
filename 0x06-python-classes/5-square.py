@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module creates an emptt class, Square"""
+"""Module creates an empty class, Square"""
 
 
 class Square:
@@ -46,3 +46,14 @@ class Square:
                 raise TypeError("size must be an integer")
         except TypeError as err:
             print(err)
+
+    def my_print(self):
+        """Public instance method to print the square with '#'"""
+        x = int(self.__size)
+        if x > 0:
+            for i in range(x):
+                for j in range(x):
+                    print("#", end="")
+                print()
+        else:
+            print()
