@@ -72,7 +72,6 @@ class Square:
         x = self.__size
         y = self.__position
         if x > 0:
-            print('\n' * (y[1] - 1), end="")
             for i in range(x):
                 print("_" * y[0], end="")
                 for j in range(x):
@@ -80,3 +79,31 @@ class Square:
                 print()
         else:
             print()
+
+    def __str__(self):
+        """Prints an instance of Square"""
+        _print = ""
+        x = self.__size
+        y = self.__position
+        if x > 0:
+            if y[1] > 0:
+                for i in range(y[1]):
+                    _print += '\n'
+            for i in range(x):
+                for a in range(y[0]):
+                    _print += "_"
+                for j in range(x):
+                    _print += "#"
+                _print += '\n'
+        else:
+            _print += '\n'
+
+        return _print
+
+my_square = Square(5, (0, 0))
+print(my_square)
+
+print("--")
+
+my_square = Square(5, (4, 1))
+print(my_square)
