@@ -72,7 +72,8 @@ class Square:
         x = self.__size
         y = self.__position
         if x > 0:
-            print('\n' * (y[1] - 1), end="")
+            if y[1] > 0:
+                print('\n' * (y[1]), end="")
             for i in range(x):
                 print("_" * y[0], end="")
                 for j in range(x):
