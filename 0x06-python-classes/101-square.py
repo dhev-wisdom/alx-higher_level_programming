@@ -95,6 +95,7 @@ class Square:
                 for j in range(x):
                     _print += "#"
                 _print += '\n'
+            _print = _print[:-1]
         else:
             _print += '\n'
 
