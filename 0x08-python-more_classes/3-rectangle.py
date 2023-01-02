@@ -68,3 +68,16 @@ class Rectangle:
             x = 2 * a
             y = 2 * b
             return x + y
+
+    def __str__(self):
+        """Control the output of "print()" on your class"""
+        __print = ""
+        x = self.__width
+        y = self.__height
+
+        for a in range(y):
+            for b in range(x):
+                __print += "#"
+            __print += '\n'
+
+        return __print
