@@ -4,7 +4,7 @@
 
 class Rectangle:
     """Empty class Rectangle"""
-    number_of_instances = 0 #Object count
+    number_of_instances = 0  # Object count
 
     def __init__(self, width=0, height=0):
         self.__width = width
