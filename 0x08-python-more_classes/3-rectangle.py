@@ -75,6 +75,9 @@ class Rectangle:
         x = self.__width
         y = self.__height
 
+        if x == 0 or y == 0:
+            return __print
+
         for a in range(y):
             for b in range(x):
                 __print += "#"
