@@ -79,11 +79,13 @@ class Rectangle:
             for b in range(x):
                 __print += "#"
             __print += '\n'
+        if __print[-1] == '\n':
+            __print = __print[:-1]
 
         return __print
 
     def __repr__(self):
-        """Print the strinh reoresentation of vlass Rectangle that can be converted back to class"""
+        """String representation of class that make class"""
         x = str(self.__width)
         y = str(self.__height)
 

@@ -79,5 +79,7 @@ class Rectangle:
             for b in range(x):
                 __print += "#"
             __print += '\n'
+        if __print[-1] == '\n':
+            __print = __print[:-1]
 
         return __print
