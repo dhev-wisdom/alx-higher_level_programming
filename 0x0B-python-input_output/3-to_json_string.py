@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+import json
 """Program to return JSON representation of an object string"""
 
 
