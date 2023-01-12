@@ -8,3 +8,6 @@ def to_json_string(my_obj):
 
     js = json.dumps(my_obj)
     return js
+
+if __name__ = "__main__":
+    to_json_string(my_obj)
