@@ -8,5 +8,5 @@ import json as js
 def save_to_json_file(my_obj, filename):
     """Function to write object to text file using JSON"""
 
-    with open(filename, "w", encoding="utf-8" as f:
-            return js.dump(my_obj, f)
+    with open(filename, "w", encoding="utf-8") as f:
+            js.dump(my_obj, f)

@@ -3,7 +3,7 @@
 
 
 import json
- 
+
 
 def load_from_json_file(filename):
     """Function to create object from JSON file `filename`"""
