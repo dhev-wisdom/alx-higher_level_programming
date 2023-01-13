@@ -9,4 +9,4 @@ def save_to_json_file(my_obj, filename):
     """Function to write object to text file using JSON"""
 
     with open(filename, "w", encoding="utf-8") as f:
-            js.dump(my_obj, f)
+        js.dump(my_obj, f)
