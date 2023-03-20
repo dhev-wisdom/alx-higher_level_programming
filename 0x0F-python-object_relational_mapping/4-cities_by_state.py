@@ -23,8 +23,10 @@ if __name__ == "__main__":
     db = MySQLdb.connect("user=mysql_user, passwd=mysql_pw, db=mysql_db")
     cur = db.cursor()
 
-    cur.execute("SELECT cities.id, cities.name, states.name FROM
-                cities INNER JOIN states ON states.id=cities.state_id")
+    cur.execute("SELECT c.id, c.name, s.name \
+                FROM cities c INNER JOIN states s \
+                ON c state_d = ._id \
+                ORDER BY c.id")
 
     rows = cur.fetchall()
 
