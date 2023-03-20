@@ -1,5 +1,7 @@
-cript that changes the name of a `State`
-object from the database `hbtn_0e_6_usa`.
+#!/usr/bin/python3
+"""
+Script that lists all `State` objects, and corresponding
+`City` objects, contained in the database `hbtn_0e_101_usa`.
 Arguments:
     mysql username (str)
     mysql password (str)
@@ -10,7 +12,8 @@ import sys
 from sqlalchemy import (create_engine)
 from sqlalchemy.orm import Session
 from sqlalchemy.engine.url import URL
-from model_state import Base, State
+from relationship_state import Base, State
+from relationship_city import City
 
 
 if __name__ == "__main__":
@@ -21,12 +24,14 @@ if __name__ == "__main__":
     url = {'drivername': 'mysql+mysqldb', 'host': 'localhost',
            'username': mySQL_u, 'password': mySQL_p, 'database': db_name}
 
-    engine = create_engine(URL(**url), pool_pre_ping=True)
+engine = create_engine(URL(**url), pool_pre_ping=True)
     Base.metadata.create_all(engine)
 
     session = Session(bind=engine)
 
-    q = session.query(State).filter(State.id == 2)
-    q.update({State.name: "New Mexico"})
+    states = session.query(State)
 
-    session.commit()
+for state in states:
+        print("{}: {}".format(state.id, state.name))
+        for city in state.cities:
+            print("\t{}: {}".format(city.id, city.name))
