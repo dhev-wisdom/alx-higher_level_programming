@@ -2,6 +2,7 @@
 """
 Module that takes in an argument and displays all values in the states
 table of hbtn_0e_0_usa where name matches the argument
+This time, protect your code against SQL injection
 
 Arguments:
     mysql username (str)
@@ -25,8 +26,8 @@ if __name__ == "__main__":
     db = MySQLdb.connect("user=mysql_user, passwd=mysql_pw, db=mysql_db")
     cur = db.cursor()
 
-    cur.execute("SELECT * FROM states WHERE name LIKE BINARY '{}' ORDER BY id"
-                .format(searched_name))
+    cur.execute("SELECT * FROM states WHERE name LIKE BINARY %s ORDER BY id"
+                .format(searched_name, ))
 
     rows = cur.fetchall()
 
