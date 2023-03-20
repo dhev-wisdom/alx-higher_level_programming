@@ -1,14 +1,11 @@
 #!/usr/bin/python3
 """
-Module that takes in an argument and displays all values in the states
-table of hbtn_0e_0_usa where name matches the argument
-This time, protect your code against SQL injection
+Module that that lists all cities from the database hbtn_0e_4_usa
 
 Arguments:
     mysql username (str)
     mysql password (str)
     database name (str)
-    state name searched (str)
 """
 
 
@@ -26,8 +23,8 @@ if __name__ == "__main__":
     db = MySQLdb.connect("user=mysql_user, passwd=mysql_pw, db=mysql_db")
     cur = db.cursor()
 
-    cur.execute("SELECT * FROM states WHERE name = %s ORDER BY id"
-                .format(searched_name, ))
+    cur.execute("SELECT cities.id, cities.name, states.name FROM
+                cities INNER JOIN states ON states.id=cities.state_id")
 
     rows = cur.fetchall()
 
