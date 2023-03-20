@@ -28,8 +28,7 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
 
     session = Session(bind=engine)
-
-    newState = State(name="California")
+newState = State(name="California")
     newState.cities.append(City(name="San Francisco"))
 
     session.add(newState)
