@@ -1,4 +1,6 @@
-cript that lists all lists all `State`
+#!/usr/bin/python3
+"""
+Script that lists all lists all `State`
 objects from the database `hbtn_0e_6_usa`.
 Arguments:
     mysql username (str)
@@ -28,5 +30,5 @@ if __name__ == "__main__":
 
     q = session.query(State).order_by(State.id)
 
-    for instance in q:
-        print("{}: {}".format(instance.id, instance.name))
+	for instance in q:
+        	print("{}: {}".format(instance.id, instance.name))
