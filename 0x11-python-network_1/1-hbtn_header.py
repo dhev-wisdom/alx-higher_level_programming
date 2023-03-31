@@ -13,4 +13,4 @@ import sys
 url = sys.argv[1]
 req = Request(url)
 with urlopen(req) as response:
-    print(response.info.X-Request-Id)
+    print(response.info['X-Request-Id'])
