@@ -11,19 +11,18 @@ import requests
 def _req():
     """ Handle url fetch with try catch and json """
     url = "http://0.0.0.0:5000/search_user"
-    try:
-        arg = sys.argv[1]
-        q = arg
-    except IndexError:
+    if len(sys.argv) > 0:
+        q = sys.argv[1]
+    else:
         q = ""
+
     payload = {"q": q}
 
     req = requests.post(url, data=payload)
 
     try:
-        req = req.json()
-        if req:
-            print("[{}] {}".format(req.id, req.name))
+        if req.json():
+            print("[{}] {}".format(req.json()['id'], req.json()['name']))
         else:
             print("No result")
     except ValueError:
