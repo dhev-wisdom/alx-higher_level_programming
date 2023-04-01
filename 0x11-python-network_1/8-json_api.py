@@ -16,14 +16,17 @@ def _req():
         q = arg
     except IndexError:
         q = ""
-    # query_string = url + "?" + q
-    req = requests.post(url, data=q)
-    if req.json() and len(req.json()) > 0:
+    payload = {"q": q}
+
+    req = requests.post(url, data=payload)
+
+    try:
         req = req.json()
-        print("[{}] {}".format(req.id, req.name))
-    elif len(req.json()) < 1:
-        print("No result")
-    else:
+        if req:
+            print("[{}] {}".format(req.id, req.name))
+        else:
+            print("No result")
+    except ValueError:
         print("Not a valid JSON")
 
 
