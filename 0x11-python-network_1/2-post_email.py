@@ -11,6 +11,7 @@ import sys
 
 
 def post_email():
+    """ Function to post email to url """
     url = sys.argv[1]
     email = sys.argv[2]
     values = {'email': email}
@@ -19,6 +20,7 @@ def post_email():
     with urllib.request.urlopen(req) as response:
         body = response.read().decode('utf-8')
         print(body)
+
 
 if __name__ == "__main__":
     post_email()
