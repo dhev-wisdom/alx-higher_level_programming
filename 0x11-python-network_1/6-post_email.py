@@ -13,10 +13,9 @@ def _requests():
     """ POSTs email to fetched URL """
     url = sys.argv[1]
     email = sys.argv[2]
-    params = {'email': email}
-    req = requests.get(url, params=params)
+    payload = {'email': email}
+    req = requests.post(url, data=payload)
     print(req.text)
-
 
 
 if __name__ == "__main__":
