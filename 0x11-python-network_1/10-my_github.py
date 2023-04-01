@@ -15,7 +15,10 @@ def _req():
     pw = sys.argv[2]
     auth = requests.auth.HTTPBasicAuth(username, pw)
     req = requests.get(url, auth=auth)
-    print(req.json()["id"])
+    try:
+        print(req.json()["id"])
+    except KeyError:
+        print("None")
 
 
 if __name__ == "__main__":
