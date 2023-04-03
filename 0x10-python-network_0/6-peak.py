@@ -6,12 +6,16 @@ def find_peak(list_of_integers):
     """
     Function finds the highest int in fastest possible way
     """
-    peak = 0
-    if list_of_integers:
-        for idx in range(len(list_of_integers)-1):
-            if list_of_integers[idx] > peak:
-                peak = list_of_integers[idx]
-    else:
-        peak = None
+    ln = len(list_of_integers)
+    low, high = 0, ln - 1
 
-    return peak
+    while low <= high:
+        mid = (low + high) // 2
+
+        if ((mid == 0 or list_of_integers[mid - 1] <= list_of_integers[mid]) and
+            (mid == ln - 1 or list_of_integers[mid + 1] > list_of_integers[mid])):
+            return list_of_integers[mid]
+        elif mid > 0 and list_of_intergers[mid - 1] > list_of_integers[mid]:
+            high = mid - 1
+        else:
+            low = mid + 1
