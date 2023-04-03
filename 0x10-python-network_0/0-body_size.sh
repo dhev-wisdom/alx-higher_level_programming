@@ -3,4 +3,6 @@
 # Sends a request to the URL
 # and displays the size of the body of the response
 
-curl -w $1
+url=$1
+size=$(curl -s -w "%{size_download}" "$url")
+echo $size
