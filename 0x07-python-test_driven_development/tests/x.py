@@ -1,0 +1,53 @@
+#!/usr/bin/python3
+"""
+Test module
+"""
+
+
+
+def say_my_name(first_name, last_name=""):
+    """
+    Prints "My name is <first name> <last name>".
+
+    :param first_name: The first name.
+    :param last_name: The last name. (default: "")
+    :return: None
+
+    Examples:
+    >>> say_my_name('Wizzy', 'Chizzy')
+    My name is Wizzy Chizzy
+
+    >>> say_my_name('Wizzy', 76)  # doctest: +IGNORE_EXCEPTION_DETAIL
+    Traceback (most recent call last):
+    ...
+    TypeError: last_name must be a string
+
+    >>> say_my_name(77, 76)  # doctest: +IGNORE_EXCEPTION_DETAIL
+    Traceback (most recent call last):
+    ...
+    TypeError: first_name must be a string
+
+    >>> say_my_name(77, 'Chi')  # doctest: +IGNORE_EXCEPTION_DETAIL
+    Traceback (most recent call last):
+    ...
+    TypeError: first_name must be a string
+
+    >>> say_my_name('Wizzy')
+    My name is Wizzy
+
+    """
+
+    if not isinstance(first_name, str):
+        raise TypeError("first_name must be a string")
+    if not isinstance(last_name, str):
+        raise TypeError("last_name must be a string")
+
+    if last_name == "":
+        print(f"My name is {first_name}")
+    else:
+        print(f"My name is {first_name} {last_name}")
+
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
