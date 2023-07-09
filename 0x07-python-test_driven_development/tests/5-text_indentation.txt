@@ -1,0 +1,66 @@
+#!/usr/bin/python3
+"""
+Module contain doctest for text_indentation function
+"""
+
+
+def text_indentation(text):
+    """
+    Prints a text passed as parameter to function
+    But prints two new lines whenever it meets '.', or '?' or ':'
+
+    Examples:
+
+    >>> text_indentation("Hello. How are you? Fine: Good!")
+    Hello.\n
+    How are you?\n
+    Fine:\n
+    Good!
+    >>> text_indentation("Hello. How are you? Fine: Good!?")
+    Hello.\n
+    How are you?\n
+    Fine:\n
+    Good!?\n
+
+    >>> text_indentation("No punction No punctuation")
+    No punction No punctuation
+    >>> text_indentation(23)   # doctest: +IGNORE_EXCEPTION_DETAIL
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
+    >>> text_indentation(["This is a list of one sentence"])
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
+    >>> text_indentation({"This is a list of one sentence": "value"})
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
+
+    """
+
+    if not isinstance(text, str):
+        raise TypeError("text must be a string")
+
+    punc = ['.', '?', ':']
+    lines = []
+    line = ""
+
+    for char in text:
+        line += char
+
+        if char in punc:
+            lines.append(line.strip())
+            lines.append("")
+
+            line = ""
+
+    lines.append(line.strip())
+
+    for lin in lines:
+        print(lin)
+
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
