@@ -106,7 +106,13 @@ class Rectangle(Base):
         method displays rectangle represented with '#'
         """
         x, y = self.__width, self.__height
+        m, n = self.__x, self.__y
+
+        for _ in range(n):
+            print("")
         for _ in range(y):
+            for _ in range(m):
+                print(" ", end="")
             for _ in range(x):
                 print("#", end="")
             print("")
