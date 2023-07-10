@@ -4,7 +4,7 @@ Module ---
 """
 
 
-from models.base import Base
+grom models.base import Base
 
 
 class Rectangle(Base):
@@ -66,3 +66,7 @@ class Rectangle(Base):
         if value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
+
+    def area(self):
+        area = int(self.__width) * int(self.__height)
+        return area
