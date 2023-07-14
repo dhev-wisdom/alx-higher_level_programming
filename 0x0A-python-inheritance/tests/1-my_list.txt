@@ -3,7 +3,7 @@
 Module tests the print_sorted function
 """
 
-import doctest
+
 from io import StringIO
 from contextlib import redirect_stdout
 import importlib.util
@@ -80,6 +80,19 @@ def test_my_list():
     [3]
     """
 
+    class MyList(list):
+    """
+    Class inherites from list class
+    """
+    def print_sorted(self):
+        """
+        function prints sorted list
+        """
+        sorted_list = sorted(self)
+        print(sorted_list)
+
+
 
 if __name__ == '__main__':
+    import doctest
     doctest.testmod()
