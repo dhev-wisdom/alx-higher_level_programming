@@ -1,0 +1,37 @@
+#!/usr/bin/python3
+"""
+Module tests the print_sorted function
+"""
+
+import unittest
+from io import StringIO
+from contextlib import redirect_stdout
+import importlib.util
+module_name = "1-my_list"
+module_file = "1-my_list.py"
+spec = importlib.util.spec_from_file_location(module_name, module_file)
+module = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(module)
+
+MyList = module.MyList
+
+class TestMyList(unittest.TestCase):
+    def test_print_sorted(self):
+        my_list = MyList()
+        my_list.append(1)
+        my_list.append(4)
+        my_list.append(2)
+        my_list.append(3)
+        my_list.append(5)
+
+        expected_output = "[1, 2, 3, 4, 5]\n"
+        with redirect_stdout(StringIO()) as output:
+            my_list.print_sorted()
+            self.assertEqual(output.getvalue(), expected_output)
+
+        # Ensure the original list remains unchanged
+        self.assertEqual(my_list, [1, 4, 2, 3, 5])
+
+
+if __name__ == '__main__':
+    unittest.main()
