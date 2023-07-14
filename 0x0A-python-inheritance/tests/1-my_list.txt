@@ -16,25 +16,70 @@ spec.loader.exec_module(module)
 MyList = module.MyList
 
 
-def test_print_sorted():
+def test_my_list():
     """
-    Test case for print_sorted method of MyList.
+    Test cases and validations for MyList class.
 
+    >>> # Check instantiation
     >>> my_list = MyList()
-    >>> my_list.append(1)
-    >>> my_list.append(4)
-    >>> my_list.append(2)
-    >>> my_list.append(3)
-    >>> my_list.append(5)
+    >>> my_list
+    []
 
-    >>> expected_output = "[1, 2, 3, 4, 5]\\n"
+    >>> # Check inheritance from list
+    >>> isinstance(my_list, list)
+    True
+
+    >>> # Check __str__ method
+    >>> str(my_list)
+    '[]'
+
+    >>> # Check append() method
+    >>> my_list.append(3)
+    >>> my_list.append(1)
+    >>> my_list.append(2)
+    >>> my_list
+    [3, 1, 2]
+
+    >>> # Check print_sorted() with sorted append
     >>> with redirect_stdout(StringIO()) as output:
     ...     my_list.print_sorted()
-    ...     assert output.getvalue() == expected_output
+    ...     output.getvalue().strip()
+    '1\\n2\\n3'
 
-    >>> my_list  # Ensure the original list remains unchanged
-    [1, 4, 2, 3, 5]
+    >>> # Check print_sorted() with not sorted append
+    >>> my_list.append(5)
+    >>> my_list.append(4)
+    >>> with redirect_stdout(StringIO()) as output:
+    ...     my_list.print_sorted()
+    ...     output.getvalue().strip()
+    '1\\n2\\n3\\n4\\n5'
+
+    >>> # Check print_sorted() with no sorted append with negative number
+    >>> my_list.append(-2)
+    >>> my_list.append(-1)
+    >>> with redirect_stdout(StringIO()) as output:
+    ...     my_list.print_sorted()
+    ...     output.getvalue().strip()
+    '-2\\n-1\\n1\\n2\\n3\\n4\\n5'
+
+    >>> # Check print_sorted() with empty list
+    >>> my_list = MyList()
+    >>> with redirect_stdout(StringIO()) as output:
+    ...     my_list.print_sorted()
+    ...     output.getvalue().strip()
+    ''
+
+    >>> # Check that print_sorted() returns a new list
+    >>> my_list = MyList()
+    >>> my_list.append(3)
+    >>> sorted_list = my_list.print_sorted()
+    >>> sorted_list
+    [3]
+    >>> my_list.append(1)
+    >>> sorted_list
+    [3]
     """
 
+
 if __name__ == '__main__':
-   doctest.testmod()
+    doctest.testmod()
