@@ -24,18 +24,19 @@ class Square(Rectangle):
         """
         public getter method for @size
         """
-        return self.width
+        return self.__width
 
     @size.setter
     def size(self, value):
         """
         public setter method for the size property
         """
-        self.width = value
-        self.height = value
+        self.__width = value
+        self.__height = value
 
     def __str__(self):
         """
         String representation of Square object
         """
-        return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y, self.width)
+        return "[Square] ({}) {}/{} - {}".format(self.id,
+                                                 self.x, self.y, self.width)
