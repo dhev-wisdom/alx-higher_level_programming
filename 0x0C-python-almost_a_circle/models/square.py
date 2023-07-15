@@ -23,5 +23,5 @@ class Square(Rectangle):
         """
         String representation of Square object
         """
-        return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y, self.width)
-
+        return "[Square] ({}) {}/{} - {}".format(self.id,
+                                                 self.x, self.y, self.width)
