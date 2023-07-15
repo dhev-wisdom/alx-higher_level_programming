@@ -20,19 +20,19 @@ class Square(Rectangle):
         super().__init__(size, size, x, y, id)
 
     @property
-    def size(se;f):
+    def size(self):
         """
         public getter method for @size
         """
-        return self.__width
+        return self.width
 
     @size.setter
     def size(self, value):
         """
         public setter method for the size property
         """
-        self.__width = value
-        self.__height = value
+        self.width = value
+        self.height = value
 
     def __str__(self):
         """
